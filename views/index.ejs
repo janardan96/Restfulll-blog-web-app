@@ -6,7 +6,7 @@
                 <% blogs.forEach((blog)=>{ %>
                     <div class="item">
                         <div class="image">
-                         <img src="<%=blog.image %>" alt="">
+                         <img class="custom-img" src="<%=blog.image %>" alt="">
                         </div>
                         <div class="content">
                          <a class="header" href="/blogs/<%= blog._id %>"><%=blog.title %></a>
