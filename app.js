@@ -6,7 +6,7 @@ const expressSanitizer=require("express-sanitizer");
 //app config
 var app=express();
 const port=process.env.PORT || 3000;
-mongoose.connect("mongodb://localhost/restfull_blogApp2");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/restfull_blogApp2");
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
