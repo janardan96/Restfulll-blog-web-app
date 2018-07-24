@@ -30,16 +30,23 @@ app.get("/",(req,res)=>{
     });
 
   //Index
+// app.get("/blogs",(req,res)=>{
+//     Blog.find({},(err,blogs)=>{
+// if(err){
+//     console.log("Error in finding the BLogs");
+// }
+// else{
+//     res.render("index",{blogs:blogs});
+// }
+//     });
+// });
 app.get("/blogs",(req,res)=>{
-    Blog.find({},(err,blogs)=>{
-if(err){
-    console.log("Error in finding the BLogs");
-}
-else{
-    res.render("index",{blogs:blogs});
-}
-    });
-});
+    Blog.find({}),then((blogs)=>{
+        res.render("index",{blogs});
+    }).catch((e)=>{
+        res.send("Something is wrong");
+    })
+})
 
 //New Route
 app.get("/blogs/new",(req,res)=>{
